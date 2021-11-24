@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aruanned>
+    <project id="1">
+        <kasutaja>
+            <nimi>Yarik Vozdusnqisarik</nimi>
+            <roll>Admin</roll>
+        </kasutaja>
+        <siselogimiseaeg>15.11.2021</siselogimiseaeg>
+        <kinnitusstaatus>Kinnitatud</kinnitusstaatus>
+    </project>
+    <project id="2">
+        <kasutaja>
+            <nimi>Dima Burila</nimi>
+            <roll>Admin</roll>
+        </kasutaja>
+        <siselogimiseaeg>19.11.2021</siselogimiseaeg>
+        <kinnitusstaatus>Pole kinnitatud</kinnitusstaatus>
+    </project>
+    <project id="3">
+        <kasutaja>
+            <nimi>Sanja Likov</nimi>
+            <roll>Admin</roll>
+        </kasutaja>
+        <siselogimiseaeg>22.11.2021</siselogimiseaeg>
+        <kinnitusstaatus>Kinnitatud</kinnitusstaatus>
+    </project>
+</aruanned>
