@@ -3,14 +3,14 @@ require_once ("conf.php");
 //uue nimi lisamine - INSERT INTO
 if(!empty($_REQUEST["uusnimi"])) {
     if(($_REQUEST["uusnimi"])) {
-        $kask = $yhendus->prepare("INSERT INTO aja(nimi, lisamisaeg)
+        $kask = $yhendus->prepare("INSERT INTO aja(projectNimi, nimi, roll, sisselogimisaeg, kinnitusstaatus) VALUES (?, 'Kasutaja', 'Kasutaja', now(), 'Pole kinnitatud'))
         VALUES (?, NOW())");
         $kask->bind_param("s", $_REQUEST["uusnimi"]);
         $kask->execute();
     }
     else{
     }
-    $kask = $yhendus->prepare("INSERT INTO aja(nimi, lisamisaeg)values (?, NOW())");
+    $kask = $yhendus->prepare("INSERT INTO aja(projectNimi, nimi, roll, sisselogimisaeg, kinnitusstaatus) VALUES ('Kasutaja', 'Kasutaja', now(), 'Pole kinnitatud')");
     $kask->bind_param("s", $_REQUEST["uusnimi"]);
     $kask->execute();
     header("Location: $_SERVER[PHP_SELF]");
@@ -30,18 +30,19 @@ if(!empty($_REQUEST["uusnimi"])) {
     <input type="submit" value="Logi välja" name="logout">
 </form>
 <table class="table table-bordered">
-    <h1>Haldus leht!</h1>
+    <h1>Projecti lisa leht!</h1>
     <form action="?">
-        <input type="text" placeholder="Добавить проект" name="uusnimi" autocomplete="off">
+        <input type="text" placeholder="Lisa project nimi" name="uusnimi" autocomplete="off">
         <input type="submit" value="Ok">
     </form>
 <?php
 //andmetabelus sisestatud nimed
-$kask=$yhendus->prepare("SELECT id, nimi, roll, sisselogimisaeg, kinnitusstaatus FROM aja");
-$kask->bind_result($id, $nimi, $roll, $sisselogimisaeg, $kinnitusstaatus);
+$kask=$yhendus->prepare("SELECT id, projectNimi, nimi, roll, sisselogimisaeg, kinnitusstaatus FROM aja");
+$kask->bind_result($id, $projectNimi $nimi, $roll, $sisselogimisaeg, $kinnitusstaatus);
 $kask->execute();
 while ($kask->fetch()){
-echo "<tr><td>$nimi</td>";
+echo "<tr><td>$projectNimi</td>";
+echo "<td>$nimi</td>";
 echo "<td>$roll</td>";
 echo "<td>$sisselogimisaeg</td>";
 echo "<td>$kinnitusstaatus</td>";
